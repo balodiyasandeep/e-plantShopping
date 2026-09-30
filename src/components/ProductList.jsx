@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./Header";
-import { addToCart } from "../CartSlice";
+import { addItem } from "../CartSlice";
 
 const plants = [
   { id: 1, category: "Air Purifying Plants", name: "Snake Plant", price: 15, image: "https://images.unsplash.com/photo-1593691509543-c55fb32e5cee?auto=format&fit=crop&w=700&q=80", description: "A hardy favorite that thrives in many indoor spaces." },
@@ -47,7 +47,7 @@ export default function ProductList() {
                     <p className="description">{plant.description}</p>
                     <div className="product-footer">
                       <strong>${plant.price.toFixed(2)}</strong>
-                      <button disabled={isAdded(plant.id)} onClick={() => dispatch(addToCart(plant))}>
+                      <button disabled={isAdded(plant.id)} onClick={() => dispatch(addItem(plant))}>
                         {isAdded(plant.id) ? "Added to Cart" : "Add to Cart"}
                       </button>
                     </div>

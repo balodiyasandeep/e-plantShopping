@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "./Header";
-import { decreaseQuantity, increaseQuantity, removeFromCart } from "../CartSlice";
+import { decreaseQuantity, increaseQuantity, removeItem } from "../CartSlice";
 
 export default function CartItem() {
   const dispatch = useDispatch();
@@ -35,7 +35,7 @@ export default function CartItem() {
                   <button onClick={() => dispatch(increaseQuantity(item.id))} aria-label={`Increase ${item.name}`}>+</button>
                 </div>
                 <div className="line-total"><span>Item total</span><strong>${(item.price * item.quantity).toFixed(2)}</strong></div>
-                <button className="delete-button" onClick={() => dispatch(removeFromCart(item.id))}>Delete</button>
+                <button className="delete-button" onClick={() => dispatch(removeItem(item.id))}>Delete</button>
               </article>
             ))}
           </section>
